@@ -1,0 +1,302 @@
+.form-container {
+    width: 400px;
+    margin: 0 auto;
+  }
+
+  .step {
+    display: none;
+  }
+
+  .step:first-child {
+    display: block;
+  }
+
+  .main {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* 100% of the viewport height */
+    overflow: hidden; /* Hide overflowing content */
+}
+a{
+  text-decoration: none;
+}
+
+/* Set the background image */
+.main::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../park.jpg'); 
+    background-position: center;
+    background-size: cover;
+    filter: blur(3px); 
+    z-index: 3;
+}
+
+input{
+    border: 0;
+}
+.auth{
+    position: absolute;
+    z-index: 5;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    background-color: rgba(0, 0, 0, 0.3); /* Adjust the overlay color and opacity */
+}
+
+
+/* admin panel styles */
+
+.admin-sidebar{
+  width: 268px;
+  position: fixed;
+  left: 0;
+  background: rgb(29 78 216 / 1);
+  height: 100vh;
+  padding-top: .75rem;
+  z-index: 10000;
+}
+
+.admin-sidebar .nav-brand{
+  text-align: center;
+  margin-bottom: .375rem;
+}
+
+.admin-sidebar.close{
+  width: 0;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+
+.admin-sidebar-list{
+  padding-top: 60px;
+  
+}
+.admin-sidebar-list ul{
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-sidebar-list a{
+  color: #e3e2e2;
+  padding: .75rem;
+  display: block;
+  text-decoration: none;
+  font-weight: normal;
+  transition: 500ms  ease-out;
+}
+
+.admin-sidebar-list a:hover, .admin-sidebar-list a.active{
+ background: rgb(80, 123, 243);
+ color: #ffffff;
+ font-weight: bold;
+ 
+}
+
+.main-content{
+  position: relative;
+  width: calc(100% - 268px);
+  margin-left: 268px;
+  z-index: 10;
+}
+
+.admin-sidebar.close ~ .main-content{
+  width: 100%!important;
+  margin-left: 0!important;
+  }
+  .admin-nav{
+    border-bottom: 2px solid rgb(234, 234, 234);
+    
+  }
+  .admin-nav .nav-container{
+    padding:0 20px;
+    padding-top: 13px;
+  }
+  #toggleSidebar{
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  .user_menu-parent{
+    position: relative;
+  }
+  .user_menu-parent .admin-submenu{
+    position: absolute;
+    right: 0;
+    margin-top: .50rem;
+    padding: .75rem 0;
+    width: 200px;
+    background: #ffffff;
+    box-shadow: 0 5px 10px rgba(0,0,0,.20);
+    display: none;
+  }
+#userMenu{
+  display: flex;
+  column-gap: 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+  .admin-submenu a{
+    display: block;
+    padding:.75rem .5rem ;
+    color: rgb(38 38 38/1);
+    text-decoration: none;
+  }
+
+  .admin-submenu a:hover{
+color: #ffffff;
+background: rgb(29 78 216 / 1);
+  }
+
+  .main-parking-content{
+    padding: 1rem;
+  }
+  .main-parking-content .container{
+    background-image: #ffffff;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 5px 9px rgba(0,0,0,.20);
+  }
+  .main-parking-content-header{
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: rgb(37 99 235/1);
+  }
+  .form .mb-4{
+    margin-bottom: 20px;
+  }
+  .form label {
+    color: rgb(55 65 81/1);
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .form input{
+    padding:.5rem .75rem ;
+  }
+
+  .form input{
+    border: 1px solid #e3e2e2;
+    background: rgb(241 245 241/1);
+    width: 100%;
+  }
+
+  .form button{
+    color: #ffffff;
+    font-weight: bold;
+    background: rgb(59 130 246/1);
+    padding: .8rem 1.5rem;
+    cursor: pointer;
+    font-size: 15px;
+    border-radius:  8px;
+  }
+  .form button:hover{
+    background: rgb(39 97 235/1);
+
+  }
+
+  /* custom.css */
+/* Add your custom styles here if needed */
+
+/* style.css */
+/* Add your common styles here if needed */
+/* Specific styles for the Parking Stations table */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table, th, td {
+  border: 1px solid #e2e2e2;
+}
+
+th, td {
+  padding: 12px;
+  text-align: center;
+}
+
+th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+img {
+  max-width: 100%;
+}
+
+.edit-btn, .delete-btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.delete-btn {
+  background-color: #ff0000;
+  margin-left: 5px;
+}
+
+
+.analytics {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.metric {
+  text-align: center;
+  padding: 20px;
+  background-color: #fff;
+  color: #333;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  margin: 10px;
+}
+.metric h2 {
+  margin: 0;
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+.metric p {
+  font-size: 16px;
+}
+
+
+
+  @media(max-width:768px){
+    .admin-sidebar{
+      width: 0;
+      opacity: 0;
+      visibility: hidden;
+    }
+    #toggleSidebar{
+      z-index: 100;
+    }
+    .main-content{
+      width: 100%;
+      margin-left: 0;
+
+    }
+
+    .admin-sidebar.close{
+     opacity: 1;
+     visibility: unset;
+     width: 100%;
+     z-index: 1000;
+    }
+  }

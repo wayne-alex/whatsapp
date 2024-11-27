@@ -1,0 +1,38 @@
+{% extends 'base_home.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="container">
+        <div class="text-center">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/1200px-WhatsApp.svg.png" alt="WhatsApp Logo" style="width: 70px; height: auto;">
+            <h2 class="display-4" style="font-family: 'Your Chosen Font', sans-serif; font-weight: bold; font-size: 24px; margin-top: 20px; color: #075E54;">
+                WhatsApp</h2>
+        </div>
+        <div class="d-flex justify-content-center">
+            <div class="card border-0 shadow-smoke-white" style="width: 25rem; background-color: #F5F5F5;">
+                <div class="card-body">
+                    <h5 class="card-title text-center" style="color: #075E54;">Sign in to WhatsApp</h5>
+                    <form method="post" action="">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label" style="color: #075E54;">Username</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                   placeholder="Username" name="username">
+                            <div id="emailHelp" class="form-text" style="color: #075E54;">We'll never share your username with anyone else.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label" style="color: #075E54;">Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="password"
+                                   name="password">
+                        </div>
+                        <div class="mb-3 text-center">
+                            <a href="{% url 'forgot-password' %}" style="color: #075E54;">Forgot password?</a>
+                        </div>
+                        <button type="submit" class="btn btn-primary rounded-pill" style="width: 100%; background-color: #075E54; border-color: #075E54;">Sign in</button>
+                        <p class="text-center mt-3">Don't have an account? <a href="{% url 'register' %}" style="color: #075E54;">Create account</a></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

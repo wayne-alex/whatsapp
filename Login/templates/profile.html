@@ -1,0 +1,76 @@
+{% extends 'base_verification.html' %}
+{% load static %}
+
+{% block content %}
+    <main>
+        <div id="main-card"
+             style="background-color: #fff; padding: 20px; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); width: 400px;">
+            <h1 style="font-size: 16px; color: #2a2929; text-align: center; font-weight: 600;">Setting Your Profile</h1>
+            <div id="text">By setting your Profile, you can find friends and family easily.</div>
+
+
+            <form method="post" action="" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-text" id="basic-addon4" style="text-align: center">Profile Picture</div>
+                <div class="profile-picture-container" style="position: relative; text-align: center;">
+                    <label for="profile-picture" class="profile-picture"
+                           style="display: inline-block; position: relative;">
+                        <img id="profile-image" src="{% static 'Login/images/default-user.png' %}"
+                             alt="Profile Picture" style="height: 100px; width: 100px; border-radius: 50%;">
+                        <input type="file" id="profile-picture" name="profile-picture" accept="image/*" style="display: none;">
+                        <div class="camera-icon "
+                             style="position: absolute; top: 90%; left: 80%; transform: translate(-50%, -50%); width: 30px; height: 30px; border-radius: 50%; background-color: #075e54; display: flex; align-items: center; justify-content: center; cursor: pointer; color: #ffffff">
+                                <span class="material-symbols-outlined">photo_camera</span>
+                        </div>
+                    </label>
+                </div>
+
+
+                <div class="form-text" id="basic-addon4">Full Names</div>
+
+                <div class="input-group mb-3">
+                <span class="input-group-text">
+                    <img src="{% static 'Login/images/default-user.png' %}" alt="Profile Picture"
+                         style="height: 25px; width: 25px;">
+                </span>
+                    <input type="text" name="fullname" class="form-control" placeholder="John Doe"
+                           aria-label="Full Name" aria-describedby="basic-addon2">
+                </div>
+                <br>
+                <div class="form-text" id="basic-addon4">About</div>
+
+
+                <div class="input-group mb-3">
+                <span class="input-group-text">
+                    <ion-icon name="information-circle-outline" style="font-size: 1.2em;"></ion-icon>
+                </span>
+                    <input type="text" name="about" class="form-control"
+                           placeholder="Hey there, I am using WhatsApp"
+                           aria-label="About" aria-describedby="basic-addon3">
+                </div>
+
+                <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn btn-success btn-sm">Set Profile</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+
+    <script>
+        $(function () {
+            $('#profile-picture').on('change', function (e) {
+                var file = e.target.files[0];
+                var reader = new FileReader();
+                reader.onloadend = function () {
+                    $('#profile-image').attr('src', reader.result);
+                }
+                if (file) {
+                    reader.readAsDataURL(file);
+                } else {
+                    $('#profile-image').attr('src', '{% static 'Login/images/default-user.png' %}');
+                }
+            });
+        });
+    </script>
+{% endblock %}

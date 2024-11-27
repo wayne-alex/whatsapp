@@ -1,0 +1,46 @@
+{% extends 'base_verification.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<main>
+    <div id="main-card"
+         style="background-color: #F5F5F5; padding: 20px; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); width: 400px;">
+        <div id="info">
+            <h1 style="font-size: 16px; color: #075E54; text-align: center; font-weight: 600;">Verify your Email
+                address</h1>
+            <div id="text">Verify your email through the link we sent <br> To restrict Multiple Account
+                creations<br> hence safeguarding your account.
+            </div>
+
+            <form method="post" action="">
+                {% csrf_token %}
+                <div class="mb-3 text-center">
+                    <input type="text" name="verification_code" placeholder="XXXXXX" class="form-control"
+                           style="text-align: center; border: 1px solid #075E54;">
+                </div>
+                <div class="mb-3 text-center">
+                    <button type="submit" class="btn btn-info" style="background-color: #075E54; color: #fff;">Verify Email Address</button>
+                </div>
+            </form>
+
+            <div id="ou">
+                <div class="line"></div>
+                OR
+                <div class="line"></div>
+            </div>
+
+            <div id="new-acc">
+                <a href="{% url 'register' %}" style="color: #075E54;">Resend email address</a>
+            </div>
+
+            <div id="voltar">
+                <a href="{% url 'login' %}" style="color: #075E54;">Change email address</a>
+            </div>
+
+        </div>
+    </div>
+</main>
+
+{% endblock %}

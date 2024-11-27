@@ -1,0 +1,377 @@
+{% load static %}
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script
+            type="module"
+            src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+            nomodule
+            src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <link rel="stylesheet" href="{% static 'Login/whatsapp/style.css' %}"/>
+    <link rel="manifest" href="{% static 'manifest.json' %}">
+    <link rel="stylesheet" href='https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css'/>
+    <link rel="shortcut icon" href="{% static 'login/images/whatsapp.png' %}" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+</head>
+<body>
+<style>
+
+    :root {
+        --appBackground: linear-gradient(#00a884 0%, #00a884 130px, #d9dbd5 130px, #d9dbd5 100%);
+        --side: #fff;
+        --right-side: #efeae2;
+        --rightSide-opacity: 0.488;
+        --secondary: #f0f2f5;
+        --border-right: #38353c55;
+        --icons: #54656f;
+        --tick-icons: #53bdeb;
+        --primary: #54656f;
+        --block: #e2e6ec;
+        --block-footer: #fff;
+        --h4: #111b21;
+        --unread: #25d366;
+        --dropdown: #fff;
+        --shadow-rgb: 11, 20, 26;
+        --listItem: #3b4a54;
+        --listItemHover: #f5f6f6;
+        --chat: #d9fdd3;
+        --chat-date-bg: #fff;
+        --chat-date: #1e2a30;
+        --chat-encrption-bg: #ffeecd;
+        --chat-encryption: #54656f;
+        --icon-focus: rgba(11, 20, 26, 0.1);
+        --scrollBar: #c0c6ce;
+        --head-title: #fff;
+        --header-bg: #008069;
+        --new-g: #111b21;
+        --settings-icon: #8696a0;
+        --profile-bg: #fff;
+        --profile-BGG: #f0f2f5;
+        --yur-name-abt: #008069;
+        --border-not: #e9edef;
+        --checked-border: #008069;
+        --checked-bg: #008069;
+        --uncheck: rgba(59, 74, 84);
+        --uncheck-circle: #667781;
+        --last-seen-title: #54656f;
+        --learn-more: #027eb5;
+        --b-con: #8696a0;
+        --ul: #667781;
+        --modal-bg: hsla(0, 0%, 100%, 0.85);
+        --modal-content-bg: #fff;
+        --modal-text: #3b4a54;
+        --modal-btn: rgba(134, 150, 160, 0.15);
+        --modal-btn2: #00a884;
+        --modal-btn-text: #111b21;
+        --modal-btn-hover: #06cf9c;
+        --modal-shadow: 11, 20, 26;
+        --hover-wallpaper: #fff;
+        --border-active: #009de2;
+        --contact-info-h2: #1e2a30;
+        --danger: #ea0038;
+        --status-text: gainsboro;
+        --status-right-text: #9494a1;
+
+        --intro-bg: #f0f2f5;
+        --intro-border: #25d366;
+        --intro-svg1: #DAF7F3;
+        --intro-svg2: #fff;
+        --intro-opacity: none;
+        --intro-svg3: #fff;
+        --intro-svg4: #eefefa;
+        --intro-svg5: #eefaf6;
+        --intro-text: #41525d;
+        --intro-sub-text: #667781;
+
+        --emoji-active-after: #009688;
+        --emoji-tab-active: rgba(0, 0, 0, .6);
+        --emoji-label: rgba(0, 0, 0, .45);
+        --emoji-tab: rgba(0, 0, 0, .32);
+    }
+
+
+    .chatBox .chat__date-wrapper {
+        text-align: center;
+        margin: 10px 0 14px;
+        position: relative;
+    }
+
+    .chatBox .chat__date {
+        background: var(--chat-date-bg);
+        color: var(--chat-date);
+        display: inline-block;
+        font-size: .75rem;
+        padding: 7px 10px;
+        border-radius: 5px;
+    }
+
+    .chatMessage {
+        position: relative;
+        display: flex;
+        margin: 10px 0;
+    }
+
+    @media screen and (min-width: 1301px) {
+        .chatMessage {
+            max-width: 65%;
+        }
+    }
+
+    .chatMessage {
+        position: relative;
+        display: flex;
+        width: fit-content;
+        max-width: 100%;
+        padding: 6px 7px 8px 9px;
+        border-radius: 7.5px;
+        line-height: 20px;
+        font-size: 13px;
+        color: var(--h4);
+    }
+
+
+    .my-chat {
+        background: var(--chat);
+        margin-left: auto;
+
+    }
+
+    .chatMessage .msg-footer {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        right: 7px;
+        bottom: 3px;
+        color: var(--primary);
+        font-size: .7rem;
+        font-weight: 500;
+    }
+
+    .chatMessage .chat-icon--blue {
+        color: var(--tick-icons);
+        margin-left: 3px;
+    }
+
+    .chatMessage .chat-icon--text {
+        color: var(--primary);
+        margin-left: 3px;
+    }
+
+    .chat__msg-filler {
+        width: 70px;
+        height: 3px;
+        margin-left: 8px;
+        display: inline-block;
+        background: transparent;
+    }
+
+    .chatBox .my-chat .chat__msg-options {
+        background: var(--chat);
+    }
+
+    .frnd-chat {
+        background: var(--block-footer);
+        margin-right: auto;
+    }
+
+    .chat__msg-filler2 {
+        width: 60px;
+        height: 3px;
+        display: inline-block;
+        background: transparent;
+    }
+
+</style>
+<div class="chatbox">
+    <div class="chatheader">
+        <div class="imgcontent">
+            <a href="{% url 'chats' %}" style="text-decoration: none;color: black">
+                <ion-icon name="arrow-back-outline" class="back"></ion-icon>
+            </a>
+
+            <div class="imgbx">
+                <img src="{{ account.profile_picture.url }}" alt=""/>
+            </div>
+            <h3>{{ account.full_name }}{% if account.admin %}
+                <span class="material-symbols-outlined" style="color: blue">verified</span> <br/><span>Online</span>
+                </h3>
+            {% else %}
+                <br/><span>Online</span>
+                </h3>{% endif %}
+        </div>
+        <div class="actionbtns">
+            <ion-icon name="videocam-outline"></ion-icon>
+            <ion-icon name="call-outline"></ion-icon>
+            <ion-icon name="ellipsis-vertical-outline"></ion-icon>
+        </div>
+    </div>
+
+    <div class="messagebox" style="background-image: url({% static 'Login/images/bg-chat.png' %});overflow-y: auto;
+            height: 90vh;">
+        <div class="chat__date-wrapper"><span class="chat__date"> 04/06/2021</span></div>
+        <p class="chat__encryption-msg"
+           style="background: #ffeecd;color:#54656f;font-size: 12.5px;text-align: center;padding: 5px 12px 6px;position: relative;margin-bottom: 8px;border-radius: 5px;line-height: 20px;">
+            <svg width="10px" height="12px" viewBox="0 0 10 12" version="1.1"
+                 xmlns="http://www.w3.org/2000/svg" class="chat__encryption-icon">
+                <path
+                        d="M5.00847986,1.6 C6.38255462,1.6 7.50937014,2.67435859 7.5940156,4.02703389 L7.59911976,4.1906399 L7.599,5.462 L7.75719976,5.46214385 C8.34167974,5.46214385 8.81591972,5.94158383 8.81591972,6.53126381 L8.81591972,9.8834238 C8.81591972,10.4731038 8.34167974,10.9525438 7.75719976,10.9525438 L2.25767996,10.9525438 C1.67527998,10.9525438 1.2,10.4731038 1.2,9.8834238 L1.2,6.53126381 C1.2,5.94158383 1.67423998,5.46214385 2.25767996,5.46214385 L2.416,5.462 L2.41679995,4.1906399 C2.41679995,2.81636129 3.49135449,1.68973395 4.84478101,1.60510326 L5.00847986,1.6 Z M5.00847986,2.84799995 C4.31163824,2.84799995 3.73624912,3.38200845 3.6709675,4.06160439 L3.6647999,4.1906399 L3.663,5.462 L6.35,5.462 L6.35111981,4.1906399 C6.35111981,3.53817142 5.88169076,2.99180999 5.26310845,2.87228506 L5.13749818,2.85416626 L5.00847986,2.84799995 Z"
+                        fill="currentColor"></path>
+            </svg>
+            Messages are end-to-end encrypted. No one outside of this chat, not even WhatsApp, can
+            read or listen to them. Click to learn more.
+        </p>
+        {% for message in messages %}
+            {% if message.sender == request.user.account %}
+                <p class="chatMessage my-chat" style="border-top-right-radius: 0;">
+                    <span>{{ message.text }} </span>
+                    <span class="chat__msg-filler"> </span>
+                    <span class="msg-footer">
+                                <span>{{ message.timestamp|time }}</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 15" width="16" height="15"
+                                     aria-label="read" class="chat-icon--blue">
+                                    <path fill="currentColor"
+                                          d="M15.01 3.316l-.478-.372a.365.365 0 0 0-.51.063L8.666 9.879a.32.32 0 0 1-.484.033l-.358-.325a.319.319 0 0 0-.484.032l-.378.483a.418.418 0 0 0 .036.541l1.32 1.266c.143.14.361.125.484-.033l6.272-8.048a.366.366 0 0 0-.064-.512zm-4.1 0l-.478-.372a.365.365 0 0 0-.51.063L4.566 9.879a.32.32 0 0 1-.484.033L1.891 7.769a.366.366 0 0 0-.515.006l-.423.433a.364.364 0 0 0 .006.514l3.258 3.185c.143.14.361.125.484-.033l6.272-8.048a.365.365 0 0 0-.063-.51z">
+                                    </path>
+                                </svg>
+                            </span>
+
+                </p>
+
+            {% else %}
+                <p class="chatMessage frnd-chat">
+                    <span> {{ message.text }} </span>
+                    <span class="chat__msg-filler2"> </span>
+                    <span class="msg-footer">
+                                <span> {{ message.timestamp|time }} </span>
+                            </span>
+                </p>
+            {% endif %}
+        {% endfor %}
+
+    </div>
+    <div class="messageinput" style="display: flex; width: 100%;">
+        <form id="chatForm" style="flex: 1; display: flex;">
+            {% csrf_token %}
+            <div class="input" style="display: flex;">
+                <ion-icon name="happy-outline"></ion-icon>
+                <input type="text" id="message" placeholder="Message" style="flex: 1; margin-left: 5px;"/>
+                <ion-icon name="attach-outline" class="deg45" style="margin-left: 5px;"></ion-icon>
+                <ion-icon name="camera-outline" style="margin-left: 5px;"></ion-icon>
+            </div>
+            <button type="submit" id="submitButton" class="mic" style="margin-left: 8px;">
+                <ion-icon name="mic-outline" id="submitIcon"></ion-icon>
+            </button>
+        </form>
+    </div>
+
+
+</div>
+</body>
+
+<script>
+
+
+    const messageInput = document.getElementById("message");
+    const submitButton = document.getElementById("submitIcon");
+
+    messageInput.addEventListener("input", function () {
+        if (messageInput.value.trim() === "") {
+            submitButton.setAttribute("name", "mic-outline");
+        } else {
+            submitButton.setAttribute("name", "send");
+        }
+    });
+    document.getElementById("chatForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        if (messageInput.value.trim() === "") {
+            return;
+        }
+
+        sendMessage(messageInput.value);
+
+        messageInput.value = "";
+        submitButton.setAttribute("name", "mic-outline");
+    });
+
+    const websocketProtocol = window.location.protocol === "https:" ? "wss" : "ws";
+    const wsEndpoint = `${websocketProtocol}://${window.location.host}/ws/chat/{{ conversation_id }}/`;
+    const socket = new WebSocket(wsEndpoint);
+
+    socket.onopen = function (event) {
+        console.log("WebSocket connection opened!");
+    };
+
+    socket.onmessage = function (event) {
+        const data = JSON.parse(event.data);
+        console.log(data);
+        const message = data.message;
+        const senderId = data.sender;
+        const timestamp = new Date(data.timestamp).toLocaleTimeString('en-US', {
+            hour: 'numeric',
+            minute: 'numeric',
+            hour12: true
+        });
+
+        // Check if the sender is the current user
+        const isCurrentUser = senderId === "{{ request.user.account.id }}";
+
+        // Create the chat message element
+        const chatMessage = document.createElement("p");
+        chatMessage.className = isCurrentUser ? "chatMessage my-chat" : "chatMessage frnd-chat";
+        chatMessage.innerHTML = `
+        <span>${message}</span>
+        <span class="chat__msg-filler${isCurrentUser ? '' : '2'}"> </span>
+        <span class="msg-footer">
+            <span>${timestamp}</span>
+            ${isCurrentUser ? `
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 15" width="16" height="15" aria-label="read" class="chat-icon--blue">
+                    <path fill="currentColor" d="M15.01 3.316l-.478-.372a.365.365 0 0 0-.51.063L8.666 9.879a.32.32 0 0 1-.484.033l-.358-.325a.319.319 0 0 0-.484.032l-.378.483a.418.418 0 0 0 .036.541l1.32 1.266c.143.14.361.125.484-.033l6.272-8.048a.366.366 0 0 0-.064-.512zm-4.1 0l-.478-.372a.365.365 0 0 0-.51.063L4.566 9.879a.32.32 0 0 1-.484.033L1.891 7.769a.366.366 0 0 0-.515.006l-.423.433a.364.364 0 0 0 .006.514l3.258 3.185c.143.14.361.125.484-.033l6.272-8.048a.365.365 0 0 0-.063-.51z"></path>
+                </svg>` : ''}
+        </span>`;
+
+        // Get the chat box element
+        const chatBox = document.querySelector(".messagebox");
+
+        // Check if it's the current user's message and update the position
+        if (isCurrentUser) {
+            chatBox.appendChild(chatMessage); // Add the message at the end
+        } else {
+            let messagesContainer = chatBox.querySelector(".messages-container");
+            if (!messagesContainer) {
+                // If messages container doesn't exist, create one and prepend it to the chat box
+                messagesContainer = document.createElement("div");
+                messagesContainer.className = "messages-container";
+                chatBox.appendChild(messagesContainer);
+            }
+            messagesContainer.append(chatMessage); // Add the message at the beginning
+        }
+
+        // Scroll to the bottom of the chat box
+        chatBox.scrollTop = chatBox.scrollHeight;
+    };
+
+
+    socket.onclose = function (event) {
+        console.log("WebSocket connection closed!");
+    };
+
+    function sendMessage(message) {
+        var currentTime = new Date().toISOString();
+
+        socket.send(JSON.stringify({
+            'message': message,
+            'sender': "{{ request.user.account.id }}",
+            'timestamp': currentTime
+
+        }));
+    }
+
+
+</script>
+

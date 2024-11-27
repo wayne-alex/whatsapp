@@ -1,0 +1,41 @@
+{% extends 'base_changeEmail.html' %}
+
+
+{% load static %}
+
+{% block content %}
+
+<main>
+    <div id="main-card"
+         style="background-color: #fff; padding: 20px; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); width: 400px;">
+        <div id="info">
+            <h1 style="font-size: 16px; color: #2a2929; text-align: center; font-weight: 600;">Change your Email
+                address</h1>
+            <div id="text">This window allows you to change email given at registration.Using a false email violated our
+                user agreement policy
+                which may lead to immediate removal.
+            </div>
+
+            <form method="Post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="Email" class="form-label">Email Address</label>
+                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
+                           placeholder="email" name="email">
+                    <div id="emailHelp" class="form-text">enter a valid email e.g example@domain.com</div>
+                </div>
+                <button type="submit" class="btn btn-primary rounded-pill" style="width: 100%;">Send verification Link</button>
+
+
+            </form>
+
+
+            <div id="voltar">
+                <a href="{% url 'login' %}">back to login </a>
+            </div>
+
+        </div>
+    </div>
+</main>
+
+{% endblock %}

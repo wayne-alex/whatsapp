@@ -1,0 +1,17 @@
+{
+    "name": "GBWhatsapp",
+    "short_name": "wp",
+    "description": "GBWhatsapp",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#008069",
+    "icons": [
+        {
+            "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/1200px-WhatsApp.svg.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        }
+    ],
+    "fullscreen": true
+}

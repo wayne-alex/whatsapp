@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+    <div class="container" style="background-color: #075E54;">
+        <!-- Use CSS flexbox to center content vertically and horizontally -->
+        <div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+            <div class="text-center">
+                <img id="splash-image"
+                     src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/1200px-WhatsApp.svg.png"
+                     alt="WhatsApp Logo" style="width: 150px; height: auto;">
+                <h1 class="display-4" style="color: white;">Welcome to WhatsApp!</h1>
+                <p class="lead" style="color: white;">Connecting you with your friends and family.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        setTimeout(function () {
+            window.location.href = 'login/';
+        }, 2000);
+    </script>
+{% endblock %}
