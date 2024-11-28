@@ -22,9 +22,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-danl*zxu_-z4%&--iq79%r*488)5f&-@)8z)5#j@ofn6)2abf^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app']
+ALLOWED_HOSTS = ['.vercel.app', '127.0.0.1']
 
 CSRF_TRUSTED_ORIGINS = ['https://262a-102-212-236-154.ngrok-free.app']
 CORS_ALLOWED_ORIGINS = ['https://262a-102-212-236-154.ngrok-free.app']
